@@ -3,7 +3,8 @@ import 'package:http/http.dart' as http;
 
 void main() async {
   var url = 'https://flutter.dev';
-  var response = await http.get(url);
+  var resolvedUrl = Uri.parse(url);
+  var response = await http.get(resolvedUrl);
   var document = responseToDocument(response);
 
   var data = MetadataParser.parse(document);
